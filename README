@@ -1,0 +1,88 @@
+NAME
+    Catalyst::View::Mason2 - Mason 2.x view class
+
+VERSION
+    version 0.01
+
+SYNOPSIS
+        # use the helper
+        script/create.pl view Mason2 Mason2
+
+        # lib/MyApp/View/Mason2.pm
+        package MyApp::View::Mason2;
+        use base 'Catalyst::View::Mason2';
+        __PACKAGE__->config(
+            # insert Mason parameters here
+        );
+
+        1;
+
+        # in a controller
+        package MyApp::Controller::Foo;
+        sub bar : Local {
+            ...
+            $c->stash->{name} = 'Homer';
+            $c->stash->{template} = 'foo/bar';   # .m is automatically added
+        }
+
+        # in root/comps/foo/bar.m
+        <%args>
+        $.name
+        </%args>
+
+        Hello <% $.name %>! Your URI was <% $c->req->uri %>.
+
+DESCRIPTION
+    Allows you to use Mason 2.x for your views.
+
+VIEW CONFIGURATION
+    mason_root_class
+        Class to use for creating the Mason object. Defaults to 'Mason'.
+
+MASON CONSTRUCTOR
+    Other than any special mentioned keys above, the configuration for this
+    view will be passed directly into `Mason->new'.
+
+    There are a few defaults specific to this view:
+
+    comp_root
+        If not provided, defaults `$c->path_to('root', 'comps')'.
+
+    data_dir
+        If not provided, defaults `$c->path_to('data')'.
+
+    allow_globals
+        Automatically includes `$c'.
+
+    All other defaults are standard Mason.
+
+GLOBALS
+    All components have access to `$c', the current Catalyst context.
+
+METHODS
+    process ($c)
+        Renders the component specified in `$c->stash->{template}' or, if
+        not specified, `$c->action'.
+
+        The component path is prefixed with a '/' if it does not already
+        have one, and Mason will automatically add a ".m" extension - to
+        change the latter, you can use
+
+            __PACKAGE__->config(
+                autoextend_request_path => 0
+            );
+
+        Request arguments are taken from `$c->stash'.
+
+    render ($c, $path, \%args)
+        Renders the component `$path' with `\%args', and returns the output.
+
+AUTHOR
+    Jonathan Swartz <swartz@pobox.com>
+
+COPYRIGHT AND LICENSE
+    This software is copyright (c) 2011 by Jonathan Swartz.
+
+    This is free software; you can redistribute it and/or modify it under
+    the same terms as the Perl 5 programming language system itself.
+
