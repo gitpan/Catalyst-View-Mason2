@@ -12,6 +12,7 @@ my %WriteMakefileArgs = (
   'ABSTRACT' => 'Mason 2.x view class',
   'AUTHOR' => 'Jonathan Swartz <swartz@pobox.com>',
   'BUILD_REQUIRES' => {
+    'Catalyst::Action::RenderView' => '0',
     'Catalyst::Test' => '0'
   },
   'CONFIGURE_REQUIRES' => {
@@ -26,7 +27,7 @@ my %WriteMakefileArgs = (
     'Mason' => '2.00',
     'Scalar::Util' => '0'
   },
-  'VERSION' => '0.01',
+  'VERSION' => '0.02',
   'test' => {
     'TESTS' => 't/*.t'
   }

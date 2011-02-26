@@ -1,6 +1,6 @@
 package Catalyst::View::Mason2;
 BEGIN {
-  $Catalyst::View::Mason2::VERSION = '0.01';
+  $Catalyst::View::Mason2::VERSION = '0.02';
 }
 use Mason;
 use Scalar::Util qw/blessed/;
@@ -93,7 +93,7 @@ Catalyst::View::Mason2 - Mason 2.x view class
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 

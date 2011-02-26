@@ -33,6 +33,7 @@
       },
       "test" : {
          "requires" : {
+            "Catalyst::Action::RenderView" : 0,
             "Catalyst::Test" : 0
          }
       }
@@ -49,6 +50,6 @@
          "web" : "https://github.com/jonswar/perl-catalyst-view-mason2"
       }
    },
-   "version" : "0.01"
+   "version" : "0.02"
 }
 

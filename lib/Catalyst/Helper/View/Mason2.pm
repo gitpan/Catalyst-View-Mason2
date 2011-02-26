@@ -1,6 +1,6 @@
 package Catalyst::Helper::View::Mason2;
 BEGIN {
-  $Catalyst::Helper::View::Mason2::VERSION = '0.01';
+  $Catalyst::Helper::View::Mason2::VERSION = '0.02';
 }
 use strict;
 use warnings;
@@ -24,7 +24,7 @@ Catalyst::Helper::View::Mason2 - Helper for Mason 2.x Views
 
 =head1 VERSION
 
-version 0.01
+version 0.02
 
 =head1 SYNOPSIS
 
