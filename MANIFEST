@@ -12,6 +12,6 @@ t/TestApp/lib/TestApp.pm
 t/TestApp/lib/TestApp/Controller/Root.pm
 t/TestApp/lib/TestApp/View/Mason2/Basic.pm
 t/TestApp/lib/TestApp/View/Mason2/NoAutoextend.pm
-t/TestApp/root/comps/action.m
-t/TestApp/root/comps/greet.m
+t/TestApp/root/comps/action.mc
+t/TestApp/root/comps/greet.mc
 t/basic.t

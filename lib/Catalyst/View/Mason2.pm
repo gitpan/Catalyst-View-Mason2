@@ -1,6 +1,6 @@
 package Catalyst::View::Mason2;
 BEGIN {
-  $Catalyst::View::Mason2::VERSION = '0.02';
+  $Catalyst::View::Mason2::VERSION = '0.03';
 }
 use Mason;
 use Scalar::Util qw/blessed/;
@@ -93,7 +93,7 @@ Catalyst::View::Mason2 - Mason 2.x view class
 
 =head1 VERSION
 
-version 0.02
+version 0.03
 
 =head1 SYNOPSIS
 
@@ -114,10 +114,10 @@ version 0.02
     sub bar : Local {
         ...
         $c->stash->{name} = 'Homer';
-        $c->stash->{template} = 'foo/bar';   # .m is automatically added
+        $c->stash->{template} = 'foo/bar';   # .mc is automatically added
     }
 
-    # in root/comps/foo/bar.m
+    # in root/comps/foo/bar.mc
     <%args>
     $.name
     </%args>
@@ -127,6 +127,8 @@ version 0.02
 =head1 DESCRIPTION
 
 Allows you to use L<Mason 2.x|Mason> for your views.
+
+=for readme stop
 
 =head1 VIEW CONFIGURATION
 
@@ -177,7 +179,7 @@ Renders the component specified in C<< $c->stash->{template} >> or, if not
 specified, C<< $c->action >>.
 
 The component path is prefixed with a '/' if it does not already have one, and
-Mason will automatically add a ".m" extension - to change the latter, you can
+Mason will automatically add a ".mc" extension - to change the latter, you can
 use
 
     __PACKAGE__->config(
@@ -191,6 +193,8 @@ Request arguments are taken from C<< $c->stash >>.
 Renders the component C<$path> with C<\%args>, and returns the output.
 
 =back
+
+=for readme continue
 
 =head1 AUTHOR
 

@@ -24,10 +24,10 @@ my %WriteMakefileArgs = (
   'NAME' => 'Catalyst::View::Mason2',
   'PREREQ_PM' => {
     'Catalyst' => '5.50',
-    'Mason' => '2.00',
+    'Mason' => '2.05',
     'Scalar::Util' => '0'
   },
-  'VERSION' => '0.02',
+  'VERSION' => '0.03',
   'test' => {
     'TESTS' => 't/*.t'
   }

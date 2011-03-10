@@ -2,7 +2,7 @@ NAME
     Catalyst::View::Mason2 - Mason 2.x view class
 
 VERSION
-    version 0.02
+    version 0.03
 
 SYNOPSIS
         # use the helper
@@ -22,10 +22,10 @@ SYNOPSIS
         sub bar : Local {
             ...
             $c->stash->{name} = 'Homer';
-            $c->stash->{template} = 'foo/bar';   # .m is automatically added
+            $c->stash->{template} = 'foo/bar';   # .mc is automatically added
         }
 
-        # in root/comps/foo/bar.m
+        # in root/comps/foo/bar.mc
         <%args>
         $.name
         </%args>
@@ -34,48 +34,6 @@ SYNOPSIS
 
 DESCRIPTION
     Allows you to use Mason 2.x for your views.
-
-VIEW CONFIGURATION
-    mason_root_class
-        Class to use for creating the Mason object. Defaults to 'Mason'.
-
-MASON CONSTRUCTOR
-    Other than any special mentioned keys above, the configuration for this
-    view will be passed directly into `Mason->new'.
-
-    There are a few defaults specific to this view:
-
-    comp_root
-        If not provided, defaults `$c->path_to('root', 'comps')'.
-
-    data_dir
-        If not provided, defaults `$c->path_to('data')'.
-
-    allow_globals
-        Automatically includes `$c'.
-
-    All other defaults are standard Mason.
-
-GLOBALS
-    All components have access to `$c', the current Catalyst context.
-
-METHODS
-    process ($c)
-        Renders the component specified in `$c->stash->{template}' or, if
-        not specified, `$c->action'.
-
-        The component path is prefixed with a '/' if it does not already
-        have one, and Mason will automatically add a ".m" extension - to
-        change the latter, you can use
-
-            __PACKAGE__->config(
-                autoextend_request_path => 0
-            );
-
-        Request arguments are taken from `$c->stash'.
-
-    render ($c, $path, \%args)
-        Renders the component `$path' with `\%args', and returns the output.
 
 AUTHOR
     Jonathan Swartz <swartz@pobox.com>
